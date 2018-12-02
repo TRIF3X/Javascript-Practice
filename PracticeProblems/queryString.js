@@ -1,3 +1,5 @@
+let scentence = 'Were looking for a few people who are interested in modeling for some upcoming Favor promotions. No experience necessary, should take an hour or less, and compensation will be paid out in Favor credits. Fill out the form in the comments if youre interested!'
+
 function createArray(str, data) {
     let x = data.toLowerCase().split(' ')
     let array = []
@@ -8,4 +10,6 @@ function createArray(str, data) {
     }
     return array
 }
-console.log(createArray('w', 'Were looking for a few people who are interested in modeling for some upcoming Favor promotions. No experience necessary, should take an hour or less, and compensation will be paid out in Favor credits. Fill out the form in the comments if youre interested!'))
+console.log(createArray('w', scentence))
+
+
