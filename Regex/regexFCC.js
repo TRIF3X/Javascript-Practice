@@ -132,3 +132,65 @@ let username = "JackOfAllTrades";
 let userCheck = /^[a-z]{2,}\d*$/i; 
 let resultUserCheck = userCheck.test(username);
 console.log(resultUserCheck)
+
+//match whitespace using \s
+let sampleWhitespace = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g;
+let resultWhitespace = sampleWhitespace.match(countWhiteSpace);
+console.log(resultWhitespace)
+
+//match non-whitespace charecters using \S
+let sampleNonWhitespace = "Whitespace is important in separating words";
+let countNonWhiteSpace = /\S/g; 
+let resultNonWhitespace = sampleNonWhitespace.match(countNonWhiteSpace);
+console.log(resultNonWhitespace)
+
+//specify upper and lower numbers of matches using {first,last} as a quanity spacer
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6}\sno/ig; 
+let resultSpecify = ohRegex.test(ohStr);
+console.log(resultSpecify)
+
+//specify only lower number of matches
+let haStr = "Hazzzzah";
+let haRegex = /Haz{4,}ah/; // specifies there must be at least 4 z's
+let resultHa = haRegex.test(haStr);
+console.log(resultHa)
+
+//specify exact number of matches
+let timStr = "Timmmmber";
+let timRegex = /Tim{4}ber/; //specifies I need exactly 4 m's 
+let resultTim = timRegex.test(timStr);
+console.log(resultTim)
+
+//check for all or none using ?
+let favWord = "favorite";
+let favRegex = /favou?rite/; //specifies the u would be optional
+let resultFav = favRegex.test(favWord);
+console.log(resultFav)
+
+//Postive ? and Negative ?! Lookahead
+//using lookaheads, match passwords that are >5 charecteres, and have 2 consecutive digits
+let sampleWord = "astronaut";
+let pwRegex = /(?=\w{5,})(?=\D*\d{2})/; 
+let resultPW = pwRegex.test(sampleWord);
+console.log(resultPW)
+
+//Reuse patterns using capture groups ( )
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/;
+let resultRepeat = reRegex.test(repeatNum);
+console.log(resultRepeat)
+
+//use capture groups to search and replace
+let huhText = "This sandwich is good.";
+let fixRegex = /good/; 
+let replaceText = "okay-dokey"; 
+let resultCapture = huhText.replace(fixRegex, replaceText);
+console.log(resultCapture)
+
+//remove whitespace from start and end
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/; 
+let resultRemove = hello.replace(wsRegex, ''); 
+console.log(resultRemove)
