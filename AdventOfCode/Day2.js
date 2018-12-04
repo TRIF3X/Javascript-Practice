@@ -250,18 +250,33 @@ kbqwtcvzgsmupoelrnaxidifui
 kbqwtcvzgsmhpbelrnaxrdifux`
 
 let newInput = input.split('\n')
-function findCheckSum(arr) {
-    const result = []
-    count = 0
-    for (let i=0; i<arr.length;i++) {
-       const check = arr[i].split('').sort().join('').match(/(.)\1+/g);
-       if (check != null) {
-           check.forEach((elem) => {
-               result.push(elem[0])
-           })
-           return result
-       }
-    }
-    
+
+const arr = newInput.reduce((a, c) => {
+	const chars = [...c]
+	let seen = {}
+	for (let char of chars) {
+		seen[char] = seen[char] ? seen[char] + 1 : 1
+	}
+
+	if (Object.keys(seen).some(k => seen[k] === 2)) a[0]++
+	if (Object.keys(seen).some(k => seen[k] === 3)) a[1]++
+	return a
+},[0, 0])
+
+console.log(arr[0] * arr[1])
+
+
+
+for (let i = 0; i < newInput.length; i++) {
+	for (let j = i + 1; j < newInput.length; j++) {
+		const charsI = [...newInput[i]]
+		const charsJ = [...newInput[j]]
+
+		let diff = charsI.reduce((a, c, i) => a + (c === charsJ[i] ? 0 : 1), 0)
+
+		if (diff === 1) {
+			console.log(newInput[i])
+			console.log(newInput[j])
+		}
+	}
 }
-console.log(findCheckSum(newInput))
