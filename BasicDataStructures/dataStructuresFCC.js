@@ -25,17 +25,20 @@ function mixedNumbers(arr) {
 //remove items using splice()
 //splice modifies the existing array and also returns a NEW array containing the removed elements
 function sumOfTen(arr) {
+    //first number is the index it starts at then where it ends
     arr.splice(1, 2)
     return arr.reduce((a, b) => a + b);
   }
   console.log(sumOfTen([2, 5, 1, 5, 2, 1]));
 
 //add items using splice()
+//replaces the item at the start index to the ending index
 function htmlColorNames(arr) {
     arr.splice(0,2, 'DarkSalmon', 'BlanchedAlmond')
     return arr;
   }
-  console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 'PaleTurqoise', 'FireBrick']));
+  console.log(htmlColorNames(['DarkGoldenRod', 'WhiteSmoke', 'LavenderBlush', 
+  'PaleTurqoise', 'FireBrick']));
 
 //copy array items using slice()
 //slice does NOT modify an array, it copies or extrats from an array

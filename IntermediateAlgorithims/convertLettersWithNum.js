@@ -12,9 +12,9 @@
 // Notes
 // Ignore non letter characters, otherwise there aren't any intentional gotchas.
 
-function alphabetPosition(text) {
+function alphabetPosition(str) {
     //split nums into an array of letters
-    let nums = text.split('');
+    let nums = str.split('');
     //split alphabet into an array of letters
     let alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
     //itterate through nums and at each itteration turn the letter 
