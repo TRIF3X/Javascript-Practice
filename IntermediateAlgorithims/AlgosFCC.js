@@ -11,3 +11,5 @@ function getProduct(arr) {
   return newArr
 }
 console.log(getProduct([1, 9, 6, 5, 2])) //Should return  [540, 60, 90, 108,  270]
+
+//not done

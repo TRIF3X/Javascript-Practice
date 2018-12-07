@@ -4,7 +4,7 @@ function createArray(str, data) {
     let x = data.toLowerCase().split(' ')
     let array = []
     for (let i=0; i<x.length; i++) {
-        if(x[i].includes(str)) {
+        if(x[i].startsWith(str)) {
         array.push(x[i])
     }
     }
