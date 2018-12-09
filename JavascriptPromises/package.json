@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "es6-promise": "^4.2.5",
-    "isomorphic-fetch": "^2.2.1"
+    "fs": "0.0.1-security",
+    "isomorphic-fetch": "^2.2.1",
+    "util": "^0.11.1"
   }
 }
