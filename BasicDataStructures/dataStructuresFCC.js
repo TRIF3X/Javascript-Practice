@@ -146,3 +146,137 @@ function checkInventory(scannedItem) {
 
 // change code below this line to test different cases:
 console.log(checkInventory("apples"));
+
+//Use the delete keyword to remove object properties
+let moreFoods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+};
+
+delete moreFoods['oranges']
+delete moreFoods['plums']
+delete moreFoods['strawberries']
+
+console.log(moreFoods);
+
+//Check if an object has a property
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function isEveryoneHere(obj) {
+  // change code below this line
+  if(obj.hasOwnProperty('Alan') || "Jeff" in obj || 'Sarah' in obj || obj.hasOwnProperty('Ryan') ) {
+    return true
+  }
+  return false
+  
+  // change code above this line
+}
+
+console.log(isEveryoneHere(users));
+
+//Iterate through the keys of an object with a for..in statement
+let users1 = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function countOnline(obj) {
+  let count = 0
+  for (let user in obj) { 
+    if(obj[user].online) {
+     count++
+    }
+  }
+  return count
+}
+
+console.log(countOnline(users1));
+
+//generate an array of all object keys with object.keys()
+let users2 = {
+  Alan: {
+    age: 27,
+    online: false
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: false
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};
+
+function getArrayOfUsers(obj) {
+  return Object.keys(obj)
+}
+
+console.log(getArrayOfUsers(users2));
+
+//modify an array stored in an object
+let user3 = {
+  name: 'Kenneth',
+  age: 28,
+  data: {
+    username: 'kennethCodesAllDay',
+    joinDate: 'March 26, 2016',
+    organization: 'freeCodeCamp',
+    friends: [
+      'Sam',
+      'Kira',
+      'Tomo'
+    ],
+    location: {
+      city: 'San Francisco',
+      state: 'CA',
+      country: 'USA'
+    }
+  }
+};
+
+function addFriend(userObj, friend) {
+   userObj.data.friends.push(friend)
+  return userObj.data.friends
+}
+
+console.log(addFriend(user3, 'Pete'));
