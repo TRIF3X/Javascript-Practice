@@ -97,3 +97,52 @@ let myNestedArray = [
   ['iterate', 1.3849, 7, '8.4876', 'arbitrary', 'depth']
 ];
 console.log(myNestedArray[0][7][1][1])
+
+//Add key-value pairs to javascript objects
+let fruits = {
+  apples: 25,
+  oranges: 32,
+  plums: 28
+};
+
+
+fruits['bananas'] = 13
+
+fruits['grapes'] = 35
+
+fruits['strawberries'] = 27
+
+console.log(fruits);
+
+//modify an object nested within an object
+let userActivity = {
+  id: 23894201352,
+  date: 'January 1, 2017',
+  data: {
+    totalUsers: 51,
+    online: 42
+  }
+};
+//bracket notation
+userActivity['data']['online'] = 45
+//dot notation
+userActivity.data.online = 44
+
+console.log(userActivity);
+
+//Access property names with bracket notation
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27
+}
+
+function checkInventory(scannedItem) {
+    return foods[scannedItem]
+}
+
+// change code below this line to test different cases:
+console.log(checkInventory("apples"));
