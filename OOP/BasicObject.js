@@ -26,3 +26,49 @@ let hound = new Dog();
 console.log(hound.name)
 console.log(hound.color)
 console.log(hound.numLegs)
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//use variables to dynamicaly create an instance of dog
+function Dog(name, color) {
+  this.name = name,
+  this.color = color,
+  this.numLegs = 4
+}
+
+let terrier = new Dog('doggie', 'white')
+
+console.log(terrier)
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//Verify an object's constructor with instanceof
+
+function House(numBedrooms) {
+  this.numBedrooms = numBedrooms;
+}
+
+let myHouse = new House(4)
+
+console.log(myHouse instanceof House)
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+function Bird(name) {
+  this.name = name;
+  this.numLegs = 2;
+}
+
+let canary = new Bird("Tweety");
+let ownProps = [];
+
+for (let property in canary) {
+  if(canary.hasOwnProperty(property)) {
+    ownProps.push(property)
+  }
+}
+
+console.log(ownProps)
+console.log(canary.name)
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
