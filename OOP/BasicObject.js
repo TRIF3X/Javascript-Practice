@@ -126,3 +126,28 @@ function joinDogFraternity(candidate) {
 }
 
 console.log(joinDogFraternity(shepard))
+
+//----------------------------------------------------------------------------------------------------------------
+function Dog(name) {
+  this.name = name; 
+}
+
+Dog.prototype = {
+  constructor: Dog,
+  numLegs: 4,
+  eat: function() {
+    console.log('nom nom nom')
+  },
+  describe: function() {
+    console.log('my name is ' + this.name)
+  }
+};
+
+const doggie = new Dog('doggie') 
+console.log(doggie.numLegs)
+doggie.eat()
+doggie.describe()
+console.log(doggie.constructor)
+
+//----------------------------------------------------------------------------------------------------------------
+
