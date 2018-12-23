@@ -62,6 +62,7 @@ function Bird(name) {
 let canary = new Bird("Tweety");
 let ownProps = [];
 
+//let x in y allows you to loop through an objects props
 for (let property in canary) {
   if(canary.hasOwnProperty(property)) {
     ownProps.push(property)
@@ -72,3 +73,56 @@ console.log(ownProps)
 console.log(canary.name)
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+//add numlegs to the Dog's prototype, allows for every instance of Dog to have numlegs
+
+function Dog(name) {
+  this.name = name;
+}
+
+
+Dog.prototype.numLegs = 4;
+
+let beagle = new Dog("Snoopy");
+console.log(beagle.numLegs)
+
+//-----------------------------------------------------------------------------------------------------------------
+
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype.numLegs = 4;
+
+let shepard = new Dog("Snoopy");
+
+let ownsProps = [];
+let prototypeProps = [];
+
+//if shepard props are own we push to ownProps, if it's on the prototype we push to prototypeProps
+for (let property in shepard) {
+  if(shepard.hasOwnProperty(property)) {
+    ownsProps.push(property)
+  } else {
+    prototypeProps.push(property)
+  }
+}
+
+console.log(ownsProps)
+console.log(prototypeProps)
+
+//--------------------------------------------------------------------------------------------------------------
+
+function Dog(name) {
+  this.name = name;
+}
+
+//check if the param is of the contructor Dog
+function joinDogFraternity(candidate) {
+  if(candidate.constructor === Dog) {
+    return true
+  }
+  return false
+}
+
+console.log(joinDogFraternity(shepard))
