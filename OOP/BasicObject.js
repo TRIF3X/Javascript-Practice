@@ -164,3 +164,98 @@ console.log(Object.prototype.isPrototypeOf(Dog.prototype))
 
 //-----------------------------------------------------------------------------------------------------------------
 
+function Animal() { }
+
+//Known as the parent OR supertype
+Animal.prototype = {
+  constructor: Animal, 
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+//Duck and lion are given the properties from Animal
+let duck = Object.create(Animal.prototype); 
+let lion = Object.create(Animal.prototype); 
+
+console.log(duck.eat); 
+console.log(lion.eat); 
+
+//------------------------------------------------------------------------------------------------------
+
+function Animal() { }
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function() {
+    console.log("nom nom nom");
+  }
+};
+
+function Dog() { }
+
+//Dog now inherits all the props from Animal
+Dog.prototype = Object.create(Animal.prototype)
+
+let ginger = new Dog();
+ginger.eat();  
+
+//-------------------------------------------------------------------------------------------------------------
+
+function Animal() { }
+function Bird() { }
+function Dog() { }
+
+//inherit props from Animal
+Bird.prototype = Object.create(Animal.prototype);
+Dog.prototype = Object.create(Animal.prototype);
+
+//reset inherintence to their respective animal
+Bird.prototype.constructor = Bird;
+Dog.prototype.constructor = Dog;
+
+let seagle = new Bird();
+let puppy = new Dog();
+
+//puppy and seagle are no longer from Animal but from Bird and Dog, Animal is a supertype of Bird and Dog still
+console.log(puppy.constructor)
+console.log(seagle.constructor)
+
+//--------------------------------------------------------------------------------------------------------------
+
+function Animal() { }
+Animal.prototype.eat = function() { console.log("nom nom nom"); };
+
+function Dog() { }
+
+Dog.prototype = Object.create(Animal.prototype)
+Dog.prototype.constructor = Dog
+Dog.prototype.bark = function() {
+    console.log('Woof!')
+}
+
+let pup = new Dog();
+
+pup.eat(); // Should print "nom nom nom"
+pup.bark(); // Should print "Woof!"
+
+//----------------------------------------------------------------------------------------------------------
+
+function Bird() { }
+
+Bird.prototype.fly = function() { return "I am flying!"; };
+
+function Penguin() { }
+//Penguin inherits Bird(supertype) props
+Penguin.prototype = Object.create(Bird.prototype);
+//Penguin now owns its own constructor
+Penguin.prototype.constructor = Penguin;
+
+//overwrite fly on the supertype Bird
+Penguin.prototype.fly = () => {
+    return 'Alas, this is a flightless bird.'
+}
+
+
+let penguin = new Penguin();
+console.log(penguin.fly());
