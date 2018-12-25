@@ -259,3 +259,50 @@ Penguin.prototype.fly = () => {
 
 let penguin = new Penguin();
 console.log(penguin.fly());
+
+//------------------------------------------------------------------------------------------------
+
+let bird = {
+  name: "Donald",
+  numLegs: 2
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat"
+};
+
+//glide mixin that takes in an obj and assigns glide to it
+let glideMixin = (obj) => {
+    obj.glide = () => {
+        console.log('im gliding!')
+    }
+}
+
+glideMixin(bird)
+glideMixin(boat)
+console.log(bird.glide())
+console.log(boat.glide())
+
+//-----------------------------------------------------------------------------------------------------
+
+function Bird() {
+  //weight is assigned in colsure within Bird so you can't alter weight from outside of Bird
+  let weight = 15;
+  this.getWeight = () => {
+    return weight
+  }
+}
+
+//IIFE , imediately invoked function expression
+//wrap the anon function call in () then call at the end with ()
+(function() {
+  console.log("A cozy nest is ready");
+})() 
+
+
+let crow = new Bird
+console.log(crow.getWeight())
+
+//---------------------------------------------------------------------------------------------------
+
