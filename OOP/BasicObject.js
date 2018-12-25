@@ -151,3 +151,16 @@ console.log(doggie.constructor)
 
 //----------------------------------------------------------------------------------------------------------------
 
+function Dog(name) {
+  this.name = name;
+}
+
+let snoop = new Dog("Snoopy");
+
+//Dog is a parent prototype of snoop
+console.log(Dog.prototype.isPrototypeOf(snoop))
+//Object is the parent prototype of Dog
+console.log(Object.prototype.isPrototypeOf(Dog.prototype))
+
+//-----------------------------------------------------------------------------------------------------------------
+
