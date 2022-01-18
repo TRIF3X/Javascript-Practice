@@ -12,7 +12,7 @@
   "dependencies": {
     "es6-promise": "^4.2.5",
     "fs": "0.0.1-security",
-    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-fetch": "^3.0.0",
     "util": "^0.11.1"
   }
 }
